@@ -22,22 +22,10 @@
     </head>
     <body class="font-sans antialiased">
     <div class="relative w-full lg:max-w-7xl">
-        <div class="min-h-screen bg-[#181818] dark:bg-gray-900">
-            
-                @include('layouts.navigation')
-            
-            <!-- Page Heading -->
-            @if (isset($heading))
-                <section class="bg-white dark:bg-gray-800 shadow">
-                    <div class="w-full mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $heading }}
-                    </div>
-                </section>
-            @endif
-
-            <!-- Page Content -->
+        <div class="min-h-screen bg-[#181818]">
+           @include('layouts.navigation')            
             <main>
-            @yield('content')
+                @yield('content')
             </main>
         </div>
     </div>
