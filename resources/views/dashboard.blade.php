@@ -51,13 +51,29 @@
         </div>
         </section>
 
-        <section class="p-8 min-w-full h-screen">  
+        <section class="p-8 w-full min-h-screen">  
             <div class="ml-10">
                 <h3 class="text-[#f7f7f7] font-semibold text-6xl">Find <span class="text-[#f7a317]">Any Books</span> You are Looking For!</h3>
             </div>
             <div class="ml-10">
-                <h4 class="text-[#f7a317] font-semibold text-xl pt-24 pl-14 ">Most Searched Book</h4>
-                
+                <h4 class="text-[#f7f7f7] font-semibold text-xl pt-24 pl-14">Most Searched Book</h4>
+                <div class="grid grid-cols-6 gap-5 h-[24rem] bg-[#2a2a2b] rounded-md hover:border-2 hover:border-[#f7a317] m-14 ">
+                    <img src="images/cote.png" alt="" class="row-span-5 col-span-2 h-72 w-48 row-start-2 ml-12 rounded-md">
+                    <div class="h-24 text-[#f7f7f7] text-5xl col-span-3 row-start-2 ">Classroom Of the Elite 2nd Year Vol.9</div>
+                    <div class="h-30 text-[#f7f7f7] text-lg col-span-3 row-start-3 row-span-2 text-ellipsis overflow-hidden">Miyabi Nagumo monologues of his journey as a student. Being the best in academics and sports, many tried to take advantage of him. He wasn't that hard working but rather grasp things faster than others. Popularity was important to him but he couldn’t be rid of a discomfort that was augmented with Horikita Manabu, someone smarter, more impressive and determined than him. Next was Ayanokoji Kiyotaka, someone arrogant but had unquestionable abilities. He began doubting himself despite having similar accomplishments. The only way to quell this discomfort was to finally defeat someone of similar capabilities, proving he is in fact, the real deal.</div>
+                </div> 
+                <div class="grid grid-cols-6 gap-5 h-[24rem] bg-[#2a2a2b] rounded-md hover:border-2 hover:border-[#f7a317] m-14 ">
+                    <img src="images/86.png" alt="" class="row-span-5 col-span-2 h-72 w-48 row-start-2 ml-12 rounded-md">
+                    <div class="h-24 text-[#f7f7f7] text-5xl col-span-3 row-start-2 ">86 - Eighty Six - Vol.12</div>
+                    <div class="h-32 text-[#f7f7f7] text-lg col-span-3 row-start-3 row-span-2 text-ellipsis overflow-hidden">The Republic's evacuation resulted in massive casualties on both sides, and the fallout takes a toll on everyone. As Shin muses on what it means to be a leader, Lena thinks of her homeland, now lost to her forever. Frederica, too, is dismayed by her own powerlessness as the ill-fated Empire's last Empress—she'll have to change if she wants to survive. Meanwhile, discontent is brewing within the Empire, and a few disaffected squadrons, desperate to reverse the state of the war, reach for a dangerous miracle.</div>
+                </div> 
+                <div class="grid grid-cols-6 gap-5 h-[24rem] bg-[#2a2a2b] rounded-md hover:border-2 hover:border-[#f7a317] m-14 ">
+                    <img src="images/got.png" alt="" class="row-span-5 col-span-2 h-72 w-48 row-start-2 ml-12 rounded-md">
+                    <div class="h-24 text-[#f7f7f7] text-5xl col-span-3 row-start-2 ">Game of Thrones Vol.1</div>
+                    <div class="h-32 text-[#f7f7f7] text-lg col-span-3 row-start-3 row-span-2 text-ellipsis overflow-hidden">Long ago, in a time forgotten, a preternatural event threw the seasons out of balance. In a land where summers can last decades and winters a lifetime, trouble is brewing. The cold is returning, and in the frozen wastes to the north of Winterfell, sinister and supernatural forces are massing beyond the kingdom’s protective Wall. At the center of the conflict lie the Starks of Winterfell, a family as harsh and unyielding as the land they were born to. Sweeping from a land of brutal cold to a distant summertime kingdom of epicurean plenty, here is a tale of lords and ladies, soldiers and sorcerers, assassins and bastards, who come together in a time of grim omens.
+
+Here an enigmatic band of warriors bear swords of no human metal; a tribe of fierce wildlings carry men off into madness; a cruel young dragon prince barters his sister to win back his throne; and a determined woman undertakes the most treacherous of journeys. Amid plots and counterplots, tragedy and betrayal, victory and terror, the fate of the Starks, their allies, and their enemies hangs perilously in the balance, as each endeavors to win that deadliest of conflicts: the game of thrones.</div>
+                </div> 
             </div>
         </section>
 @endsection

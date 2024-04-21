@@ -11,10 +11,10 @@
         <div class="flex justify-between">
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-            <a href="{{ route('login') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
+            <a href="{{ route('book') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
                 Books
             </a>
-            <a href="{{ route('login') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
+            <a href="{{ route('') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
                 Feedback
             </a>
                 <x-dropdown align="right" width="48">
