@@ -1,10 +1,10 @@
 <x-app-layout>
 @section('content')
     <x-guest-layout>
-        <form method="POST" action="{{ route('feedback') }}">
+        <form method="POST" action="{{ route('addbook') }}">
             @csrf
             <div>
-                <h1 class=" text-[#f7a317] text-5xl font-extrabold my-8 text-center">Feedback</h1>
+                <h1 class=" text-[#f7a317] text-5xl font-extrabold my-8 text-center">Add Book</h1>
             </div>
             <div class="mt-4">
                 <x-input-label for="subject" :value="__('Subject')" />
