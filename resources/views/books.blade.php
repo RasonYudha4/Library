@@ -15,16 +15,16 @@
             <input type="search" name="" id="" class=" rounded-md h-8 w-60 ml-12 ">
         </div>
         <div class="grid grid-cols-6 gap-5 h-screen rounded-md m-5 mt-12">
-            <!-- Tempat untuk for each -->
+            @foreach($books as $book)
             <div class="h-78 bg-[#2a2a2b] rounded-lg shadow-md overflow-hidden">
-                <img src="images/86.png" alt="..." class="w-full h-80 bg-sky-800 object-cover">
+                <img src="{{ asset('images/' . $book->image_path)}}" alt="..." class="w-full h-80 bg-sky-800 object-cover">
                 <div class="p-4">
-                    <h4 class="text-[#f7a317] font-extrabold">Title</h4>
+                    <h4 class="text-[#f7a317] font-extrabold">{{ $book->title}}</h4>
                     <p class="text-[#f7a317] font-light">Sci-fi</p>
-                    <p class="text-[#f7f7f7] mt-6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="text-[#f7f7f7] mt-6">{{ $book->content}}</p>
                 </div>
             </div>
-
+            @endforeach
         </div>
     </section>
 @endsection
