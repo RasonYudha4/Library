@@ -21,8 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/books', [BooksController::class, 'index'])->name('book');
+    Route::get('/books/searchByName', [BooksController::class, 'searchByName']);
 
     Route::get('/feedbacks', [FeedbackController::class, 'index'])->name('feedback');
+    Route::post('/feedbacks', [FeedbackController::class, 'add'])->name('feedback.post');
 
     Route::resource('/admin/book', AdminbookController::class);
 
@@ -31,6 +33,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/type', [TypeController::class, 'index']);
     Route::post('/admin/type', [TypeController::class, 'store']);
+
+    Route::get('/admin/feedbacks', [FeedbackController::class, 'show']);
+    Route::delete('/admin/feedbacks/{$id}', [FeedbackController::class, 'destroy']);
 
 });
 

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('authors', function (Blueprint $table) {
-            $table->increments('authorid');
-            $table->string('author_name');
-            $table->string('author_nationality');
-            $table->timestamps();
+        Schema::table('books', function (Blueprint $table) {
+            $table->string('image_path');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('authors');
+        Schema::table('books', function (Blueprint $table) {
+            $table->dropColumn('image_path');
+        });
     }
 };

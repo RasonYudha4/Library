@@ -1,7 +1,7 @@
 <x-app-layout>
 @section('content')
     <x-guest-layout>
-        <form method="POST" action="/admin/{{$book->id}}">
+        <form method="POST" action="/admin/book/{{$book->id}}">
             @csrf
             @method('PUT')
             <div>

@@ -13,12 +13,12 @@
 
             <img src="{{ asset('images/' . $book->image_path)}}" alt="">
 
-            <a href="admin/book/{{$book->id}}/edit">Edit</a>
+            <a href="{{$book->id}}/edit">Edit</a>
             <form action="/admin/book/{{$book->id}}" method="POST">
                 @csrf 
                 @method('delete')
 
-                <button type="submit">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this book?')">
                     Delete
                 </button>
             </form>

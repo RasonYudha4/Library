@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
+use App\Models\Type;
+use App\Models\BookType;
 use Illuminate\Http\Request;
 
 class AdminbookController extends Controller
@@ -23,7 +26,13 @@ class AdminbookController extends Controller
      */
     public function create()
     {
-        return view('admin.addbook');
+        $authors = Author::all();
+        $types = Type::all();
+
+        return view('admin.addbook', [
+            'authors' => $authors,
+            'types' => $types
+        ]);
     }
 
     /**
@@ -44,8 +53,17 @@ class AdminbookController extends Controller
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'published_at' => $request->input('published_at'),
-            'image_path' => $uniqueImageName
+            'image_path' => $uniqueImageName,
+            'authorId' => $request->input('authorId'),
         ]);
+
+        $selectedTypes = $request->input('type');
+        foreach ($selectedTypes as $typeId) {
+            $book_type[] = BookType::create([
+                'bookId' => $book->id,
+                'typeId' => $typeId,
+            ]);
+        }
 
         return redirect('/admin/book');
     }
