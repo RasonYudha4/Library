@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedbacks', function (Blueprint $table) {
-            $table->id();
-            $table->string('subject');
-            $table->string('body');
-            $table->timestamps();
+        Schema::table('feedbacks', function (Blueprint $table) {
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedbacks');
+        Schema::table('feedbacks', function (Blueprint $table) {
+            $table->dropColumn('userId');
+        });
     }
 };

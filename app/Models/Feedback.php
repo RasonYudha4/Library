@@ -14,7 +14,7 @@ class Feedback extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['subject', 'body'];
+    protected $fillable = ['subject', 'body', 'userId'];
 
     public function user(): BelongsTo
     {

@@ -11,6 +11,8 @@
             {{ $feedback->body}}
             </p>
 
+            <p>{{$user->email}}</p>
+
             <a href="{{$feedback->id}}/edit">Edit</a>
             <form action="/admin/feedback/{{$feedback->id}}" method="POST">
                 @csrf 

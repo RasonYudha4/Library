@@ -1,7 +1,7 @@
 <x-app-layout>
 @section('content')
     <x-guest-layout>
-        <form method="POST" action="{{ route('feedback') }}">
+        <form method="POST" action="/feedbacks">
             @csrf
             <div>
                 <h1 class=" text-[#f7a317] text-5xl font-extrabold my-8 text-center">Feedback</h1>
@@ -17,10 +17,10 @@
                 <x-input-error :messages="$errors->get('body')" class="mt-2" />
             </div>
 
+            <x-primary-button class="ms-3 mt-8">
+                    {{ __('Send') }}
+            </x-primary-button>
         </form>
-        <x-primary-button class="ms-3 mt-8">
-                {{ __('Send') }}
-        </x-primary-button>
     </x-guest-layout>
 @endsection
 </x-app-layout>

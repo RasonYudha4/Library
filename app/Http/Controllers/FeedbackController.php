@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         return view('feedback');
     }
 
-    public function add(Request $request) {
+    public function store(Request $request) {
+
+        $user = auth()->user();
+
         $validator = $request->validate([
             'subject' => 'required',
             'body' => 'required'
@@ -19,16 +23,21 @@ class FeedbackController extends Controller
 
         $feedback = Feedback::create([
             'subject' => $request->input('subject'),
-            'body' => $request->input('body')
+            'body' => $request->input('body'),
+            'userId' => $user->id
         ]);
 
-        return redirect('/feedbacks');
+        return redirect('/dashboard');
     }
 
     public function show() {
-        $feedbacks = Feedback::class->all();
+        $feedbacks = Feedback::all();
+        foreach($feedbacks as $feedback){
+            $user = User::where('id', $feedback->userId)->first();
+        }
         return view('admin.feedback', [
-            'feedbacks' => $feedbacks
+            'feedbacks' => $feedbacks,
+            'user' => $user
         ]);
     }
 

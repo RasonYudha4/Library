@@ -23,8 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/books', [BooksController::class, 'index'])->name('book');
     Route::get('/books/searchByName', [BooksController::class, 'searchByName']);
 
-    Route::get('/feedbacks', [FeedbackController::class, 'index'])->name('feedback');
-    Route::post('/feedbacks', [FeedbackController::class, 'add'])->name('feedback.post');
+    Route::get('/feedbacks', [FeedbackController::class, 'index']);
+    Route::post('/feedbacks', [FeedbackController::class, 'store']);
 
     Route::resource('/admin/book', AdminbookController::class);
 

@@ -16,7 +16,7 @@
             <a href="{{ route('book') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
                 Books
             </a>
-            <a href="{{ route('feedback') }}" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
+            <a href="/feedbacks" class="inline-flex items-center px-3 py-2  border-transparent text-md leading-4 font-medium text-[#f7f7f7]  hover:text-[#f7A317] focus:outline-none transition ease-in-out duration-150">
                 Feedback
             </a>
                 <x-dropdown align="right" width="48">
@@ -29,6 +29,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('logout')">
+                            {{ __('Borrowed Book') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
