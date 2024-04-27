@@ -103,7 +103,7 @@ class AdminbookController extends Controller
      */
     public function destroy($id)
     {
-        $book = Book::find($id)->first();
+        $book = Book::find($id);
         $book->delete();
 
         return redirect('/admin/book');
