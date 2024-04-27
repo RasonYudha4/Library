@@ -81,7 +81,7 @@ class AdminbookController extends Controller
      */
     public function edit($id)
     {
-        $book = Book::find($id)->first();
+        $book = Book::find($id);
         return view('admin.editbook')->with('book', $book);
     }
 
