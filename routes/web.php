@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/books', [BooksController::class, 'index'])->name('book');
+    Route::post('/books', [BooksController::class, 'borrow'])->name('borrowbook');
+    Route::delete('/books', [BooksController::class, 'delete'])->name('deletebook');
     Route::get('/books/searchByName', [BooksController::class, 'searchByName']);
 
     Route::get('/feedbacks', [FeedbackController::class, 'index']);
@@ -36,7 +38,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/feedbacks', [FeedbackController::class, 'show']);
     Route::delete('/admin/feedbacks/{$id}', [FeedbackController::class, 'destroy']);
-
+  
 });
 
 require __DIR__.'/auth.php';

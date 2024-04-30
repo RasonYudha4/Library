@@ -15,7 +15,7 @@ class Book extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['title', 'content', 'published_at', 'image_path', 'authorId'];
+    protected $fillable = ['title', 'content', 'published_at', 'image_path', 'authorId', 'ISBN'];
 
     public function author(): HasOne
     {

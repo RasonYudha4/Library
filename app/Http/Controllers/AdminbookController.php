@@ -44,6 +44,7 @@ class AdminbookController extends Controller
             'title' => 'required',
             'content' => 'required',
             'published_at' => 'required',
+            'isbn' => 'required'
         ]);
 
         $uniqueImageName = time() . '-' . $request->title . '-' . $request->image->extension();
@@ -53,6 +54,7 @@ class AdminbookController extends Controller
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'published_at' => $request->input('published_at'),
+            'ISBN' => $request->input('isbn'),
             'image_path' => $uniqueImageName,
             'authorId' => $request->input('authorId'),
         ]);
@@ -93,7 +95,8 @@ class AdminbookController extends Controller
         $book = Book::where('id', $id)->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'published_at' => $request->input('publish_at')
+            'published_at' => $request->input('publish_at'),
+            'authorId' => $request->input('authorId'),
         ]);
         return redirect('/admin/book');
     }
