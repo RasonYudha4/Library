@@ -14,15 +14,10 @@ class BooksController extends Controller
 {
     public function index(Request $request) {
         $books = Book::all();
-        $borrow = Borrowed::where('userId', Auth::id())->first();
-        foreach($books as $book){
-            $author = Author::where('authorId', $book->authorId)->first();
-            // $borrow = Borrowed::where('bookId', $book->id);
-        }
+        $borrows = Borrowed::all();
         return view('books', [
             'books' => $books,
-            'author' => $author,
-            'borrow' => $borrow
+            'borrows' => $borrows
         ]);
     }
 
@@ -47,34 +42,10 @@ class BooksController extends Controller
     public function searchByName(Request $request) {
         $search = $request->input('searchByName');
         $books = Book::where('title', 'like', "%$search%")->get();
-        $borrow = Borrowed::where('userId', Auth::id())->first();
+        $borrows = Borrowed::all();
         return view('books', [
             'books' => $books,
-            'borrow' => $borrow
-        ]);
-    }
-
-    public function searchByType(Request $request) {
-        $search = $request->input('ByType');
-        $type = Type::where('type', 'like', "%$search%")->get();
-        $booktype = BookType::where('typeId', $type->typeId)->get();
-        $books = Book::where('bookId', $booktype->bookId)->get();
-        $borrow = Borrowed::where('userId', Auth::id())->first();
-        return view('books', [
-            'books' => $books,
-            'borrow' => $borrow
-        ]);
-    }
-    
-    public function searchByAuthor(Request $request) {
-        $search = $request->input('ByAuthor');
-        $author = Author::where('author_name', 'like', "%$search%")->first();
-        $books = Book::where('authorId', $author->authorid)->get();
-        $borrow = Borrowed::where('userId', Auth::id())->first();
-        return view('books', [
-            'books' => $books,
-            'author' => $author,
-            'borrow' => $borrow
+            'borrows' => $borrows
         ]);
     }
 }

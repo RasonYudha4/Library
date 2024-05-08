@@ -1,31 +1,3 @@
-<!-- <div>
-    <h1>Feedbacks</h1>
-    <div class="w-5/6 py-10">
-        @foreach($feedbacks as $feedback)
-        <div>
-            <h3>
-                {{ $feedback->subject}}
-            </h3>
-
-            <p>
-            {{ $feedback->body}}
-            </p>
-
-            <p>{{$user->email}}</p>
-
-            <a href="{{$feedback->id}}/edit">Edit</a>
-            <form action="/admin/feedback/{{$feedback->id}}" method="POST">
-                @csrf 
-                @method('delete')
-
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this feedback?')">
-                    Delete
-                </button>
-            </form>
-        </div>
-        @endforeach
-    </div>
-</div> -->
 <x-app-layout>
 @section('content')
 <div class=" min-h-screen w-full bg-[#181818]">
@@ -44,6 +16,11 @@
             <tr class="m-2">
                 <td class="text-[#f7a317] px-6">{{ $feedback->subject}}</td>
                 <td class="text-[#f7a317] px-6 text-ellipsis overflow-hidden max-w-80">{{ $feedback->body}}</td>
+                @foreach ($users as $user)
+                    @if ($feedback->userId == $user->id)
+                        @break  // Exit inner loop after finding a match (valid syntax)
+                    @endif
+                @endforeach
                 <td class="text-[#f7a317] px-6">{{$user->email}}</td>
                 <td>
                     <form action="/admin/feedback/{{$feedback->id}" method="POST">

@@ -11,30 +11,41 @@
     <section class="mt-36 min-h-screen min-w-full relative">
         
         <div class="grid grid-cols-6 gap-5 min-h-screen rounded-md m-5 mt-12">
-            @foreach($books as $book)
+        @foreach($books as $book)
             <div class="h-78 bg-[#2a2a2b] rounded-lg shadow-md overflow-hidden">
                 <img src="{{ asset('images/' . $book->image_path)}}" alt="..." class="w-full h-80 bg-sky-800 object-cover">
                 <div class="p-4">
                     <h4 class="text-[#f7a317] font-extrabold text-2xl">{{ $book->title}}</h4>
-                    <h6 class="text-[#f7a317] font-medium mt-2">Author : {{ $author->author_name ?? 'No author listed' }}</h6>
-                    @if ( $borrow->bookId == $book->id)
-                    <form action="/books" method="POST">
+                    <h6 class="text-[#f7a317] font-medium mt-2">Author : {{ $book->author->author_name ?? 'No author listed' }}</h6>
+                    @php
+                        $borrowed = false;
+                    @endphp
+                    @foreach ($borrows as $borrow)
+                        @if ($borrow->bookId == $book->id)
+                            @php
+                                $borrowed = true;
+                            @endphp
+                            @break  // Exit inner loop after finding a match (valid syntax)
+                        @endif
+                    @endforeach
+                    @if ($borrowed)
+                        <form action="/books" method="POST">
                         @csrf
                         @method('delete')
-                        <x-primary-button class=" mt-2 text-[#181818]" name="return" value="{{ $book->id}}">
+                        <x-primary-button class=" mt-2 text-[#181818]" name="return" value="{{ $book->id }}">
                             {{ __('Return') }}
                         </x-primary-button>
-                    </form>
+                        </form>
                     @else
-                    <form action="/books" method="POST">
+                        <form action="/books" method="POST">
                         @csrf
-                        <x-primary-button class=" mt-2" name="borrow" value="{{ $book->id}}">
+                        <x-primary-button class=" mt-2" name="borrow" value="{{ $book->id }}">
                             {{ __('Borrow') }}
                         </x-primary-button>
-                    </form>
+                        </form>
                     @endif
-                    <p class="text-[#f7f7f7] mt-6">{{ $book->content}}</p>
-                </div>
+             <p class="text-[#f7f7f7] mt-6">{{ $book->content}}</p>
+            </div>
             </div>
             @endforeach
         </div>

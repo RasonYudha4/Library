@@ -31,13 +31,11 @@ class FeedbackController extends Controller
     }
 
     public function show() {
-        $feedbacks = Feedback::all();
-        foreach($feedbacks as $feedback){
-            $user = User::where('id', $feedback->userId)->first();
-        }
+        $feedbacks = Feedback::with('user')->get();
+        $users = User::all();
         return view('admin.feedback', [
             'feedbacks' => $feedbacks,
-            'user' => $user
+            'users' => $users
         ]);
     }
 

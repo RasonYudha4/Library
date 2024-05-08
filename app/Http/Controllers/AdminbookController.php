@@ -96,8 +96,9 @@ class AdminbookController extends Controller
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'published_at' => $request->input('publish_at'),
-            'authorId' => $request->input('authorId'),
+            'ISBN' => $request->input('isbn')
         ]);
+        
         return redirect('/admin/book');
     }
 

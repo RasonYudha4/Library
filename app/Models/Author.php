@@ -12,6 +12,8 @@ class Author extends Model
 
     protected $table = 'authors';
 
+    protected $primaryKey = 'authorId';
+    
     protected $fillable = ['author_name', 'author_nationality'];
 
     public function book(): BelongsTo

@@ -24,7 +24,7 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="isbn" :value="__('ISBN')" />
-                <x-text-input id="isbn" class="block mt-1 w-full" type="text" name="isbn" :value="old('isbn')" autofocus autocomplete="isbn" />
+                <x-text-input id="isbn" class="block mt-1 w-full" type="text" name="isbn" value="{{$book->ISBN}}" autofocus autocomplete="isbn" />
                 <x-input-error :messages="$errors->get('isbn')" class="mt-2" />
             </div>
 
